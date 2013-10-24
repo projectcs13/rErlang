@@ -13,8 +13,11 @@ by starting R using the command 'R' and running the function
 press 'Y'.
 
 > $ R
-> > install.packages("forecast")
-> > q()
+
+> \> install.packages("forecast")
+
+> \> q()
+
 > $
 
 Now you are ready to compile rErlang! Write 'make'!
