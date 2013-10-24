@@ -1,0 +1,9 @@
+%% This is the application resource file (.app file) for rErlang
+%% 
+{application, erlastic_search, 
+  [{description, "An Erlang app for communicating with R."},
+   {vsn, "0.0.1"},
+   {modules, []},
+   {registered,[]},
+   {applications, []},
+   {start_phases, []}]}.
