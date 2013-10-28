@@ -2,7 +2,7 @@
 -export([start_deps/0]).
 
 start_deps() ->
-    start_deps(erlastic_search, permanent).
+    start_deps(rErlang, permanent).
 
 start_deps(App, Type) ->
     case application:start(App, Type) of
