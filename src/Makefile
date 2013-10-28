@@ -1,6 +1,6 @@
 .SUFFIXES: .erl .beam .yrl
 
-BINDIR :=../bin
+BINDIR :=../ebin
 R_INCLUDE_DIR := /usr/share/R/include
 ERL_BASE := /usr/lib/erlang/lib/erl_interface-3.7.13
 R_HOME := /usr/lib/R
