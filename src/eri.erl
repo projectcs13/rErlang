@@ -8,7 +8,7 @@
 start()->
     start("./lib/rErlang/bin/ERI-0.1").
 start(ExtPrg) ->
-    spawn_link(?MODULE, init, [ExtPrg]).
+    register(?MODULE, spawn_link(?MODULE, init, [ExtPrg])).
 
 stop() ->
     case call_port({stop}) of 
@@ -36,7 +36,6 @@ eval(X)->
     end.
 
 init(ExtPrg)->
-    register(?MODULE, self()),
     process_flag(trap_exit, true),
     Port = open_port({spawn, ExtPrg}, [{packet,2}, binary]),
     loop(Port).
