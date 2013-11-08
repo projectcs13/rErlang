@@ -44,6 +44,8 @@ init(ExtPrg)->
 sum(X,Y) -> call_port({sum, X, Y}).
 
 call_port(Msg) ->
+    erlang:display("sending message: "),
+    erlang:display(Msg),
     ?MODULE ! {call, self(), Msg},
     receive
 	{?MODULE, Result}->
@@ -52,13 +54,6 @@ call_port(Msg) ->
 
 loop(Port) ->
     receive
-        {call, Caller, stop} ->
-	    erlang:display("Now actually trying to stop"),
-	    Port ! {self(), close},
-	    receive
-		{Port, closed} ->
-		    exit(normal)
-	    end;
 	{call, Caller, Msg} ->
 	    Port ! {self(), {command, term_to_binary(Msg)}},
 	    receive
