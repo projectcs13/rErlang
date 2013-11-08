@@ -11,6 +11,7 @@ start(ExtPrg) ->
     register(?MODULE, spawn_link(?MODULE, init, [ExtPrg])).
 
 stop() ->
+	io:fwrite("Attempting to stop R\n"),
     case call_port({stop}) of 
 	{ok} ->
 	    io:fwrite("terminate R session\n"),
@@ -55,6 +56,7 @@ loop(Port) ->
 	    Port ! {self(), {command, term_to_binary(Msg)}},
 	    receive
 		{Port, {data, Data}} ->
+		    erlang:display(Data),
 		    Caller ! {?MODULE, binary_to_term(Data)}
 	    end,
 	    loop(Port);
