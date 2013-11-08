@@ -52,7 +52,7 @@ call_port(Msg) ->
 
 loop(Port) ->
     receive
-        {call, Caller, {stop}} ->
+        {call, Caller, stop} ->
 	    erlang:display("Now actually trying to stop"),
 	    Port ! {self(), close},
 	    receive
