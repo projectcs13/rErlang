@@ -53,6 +53,7 @@ call_port(Msg) ->
 loop(Port) ->
     receive
 	{call, Caller, Msg} ->
+	    erlang:display(Msg),
 	    Port ! {self(), {command, term_to_binary(Msg)}},
 	    receive
 		{Port, {data, Data}} ->
