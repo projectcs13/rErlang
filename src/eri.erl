@@ -52,17 +52,16 @@ call_port(Msg) ->
 
 loop(Port) ->
     receive
+        {call, Caller, {stop}} ->
+	    erlang:display("Now actually trying to stop"),
+	    Port ! {self(), close},
+	    receive
+		{Port, closed} ->
+		    exit(normal)
+	    end;
 	{call, Caller, Msg} ->
 	    Port ! {self(), {command, term_to_binary(Msg)}},
 	    receive
-	        stop ->
-	            erlang:display("Now actually trying to stop"),
-	            Port ! {self(), close},
-	            receive
-		        {Port, closed} ->
-		            exit(normal)
-	    	    end;
-	    
 		{Port, {data, Data}} ->
 		    erlang:display(Data),
 		    Caller ! {?MODULE, binary_to_term(Data)}
