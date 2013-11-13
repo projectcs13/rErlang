@@ -88,7 +88,7 @@ int initR(int argc, char **argv) {
     {     
       int stat=Rf_initialize_R(argc, argv);
       if (stat<0) {
-	printf("Failed to initialize embedded R! (stat=%d)\n",stat);
+	fprintf(stderr,"Failed to initialize embedded R! (stat=%d)\n",stat);
 	return -1;
       }
     }
@@ -101,7 +101,7 @@ int initR(int argc, char **argv) {
 #endif
 
 #ifdef JGR_DEBUG
-    printf("R primary initialization done. Setting up parameters.\n");
+    fprintf(stderr,"R primary initialization done. Setting up parameters.\n");
 #endif
 
     R_Outputfile = NULL;
@@ -129,13 +129,13 @@ int initR(int argc, char **argv) {
     ptr_R_savehistory = Re_savehistory;
 
 #ifdef JGR_DEBUG
-	printf("Setting up R event loop\n");
+	fprintf(stderr,"Setting up R event loop\n");
 #endif
 
     setup_Rmainloop();
 
 #ifdef JGR_DEBUG
-    printf("R initialized.\n");
+    fprintf(stderr,"R initialized.\n");
 #endif
 
     return 0;
