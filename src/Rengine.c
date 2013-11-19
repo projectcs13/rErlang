@@ -31,11 +31,11 @@ long r_parse(const char *s){
   PROTECT(cv=allocVector(STRSXP,1));
   SET_STRING_ELT(cv, 0, mkChar(s));
   UNPROTECT(1);
-  fprintf(stderr,"parsing \"%s\"\n", CHAR(STRING_ELT(cv,0)));    
+  //fprintf(stderr,"parsing \"%s\"\n", CHAR(STRING_ELT(cv,0)));    
   pstr=R_ParseVector(cv, 1, &ps, R_NilValue);  
 
-  fprintf(stderr,"%d\n",TYPEOF(pstr));  
-  fprintf(stderr,"parse status=%d, result=%x, type=%d\n", ps, (int) pstr, (pstr!=0)?TYPEOF(pstr):0);
+  //fprintf(stderr,"%d\n",TYPEOF(pstr));  
+  //fprintf(stderr,"parse status=%d, result=%x, type=%d\n", ps, (int) pstr, (pstr!=0)?TYPEOF(pstr):0);
   
   return SEXP2L(pstr); 
 
