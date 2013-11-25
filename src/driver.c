@@ -51,9 +51,9 @@ void debugloop(){
  
   PrintValue(L2SEXP(es));
 
-  printf("start main loop\n");
+  fprintf("start main loop\n");
   r_run();
-  printf("finish debug mode\n");
+  fprintf("finish debug mode\n");
 }
 
 int mainloop(){
