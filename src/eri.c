@@ -36,8 +36,8 @@ int convert(long exp, ei_x_buff *result){
   es = L2SEXP(exp);
   type = TYPEOF(es);
   unsigned int len = LENGTH(es);
-  fprintf(stderr,"TYPEOF:%d\n",type);
-  fprintf(stderr,"LENGTH:%d\n",len);  
+  //fprintf(stderr,"TYPEOF:%d\n",type);
+  //fprintf(stderr,"LENGTH:%d\n",len);  
 
   if(type == REALSXP){    
     if(len > 0){   
