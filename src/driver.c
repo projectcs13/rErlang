@@ -20,7 +20,7 @@ int sum(int x, int y){
 }
 
 void debugcnode(){
-  printf("start cnode test\n");
+  //fprintf(stderr,"start cnode test\n");
   rE_connect();
   rE_test(2);
   rE_test(6);
@@ -32,13 +32,13 @@ void debugcnode(){
 }
 
 void debugloop(){
-  printf("start debug mode\n");
+  //printf("start debug mode\n");
 
   if(setup()){
-    printf("fail initR\n");
+    //printf("fail initR\n");
     return; 
   }  
-  printf("R initialized\n");
+  //printf("R initialized\n");
 
   char *s;
   s = "1+1";
@@ -51,9 +51,9 @@ void debugloop(){
  
   PrintValue(L2SEXP(es));
 
-  fprintf("start main loop\n");
+  //fprintf("start main loop\n");
   r_run();
-  fprintf("finish debug mode\n");
+  //fprintf("finish debug mode\n");
 }
 
 int mainloop(){
