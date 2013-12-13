@@ -7,7 +7,7 @@
 #include "eri.h"
 #include "rErlang.h"
 
-#define BUF_SIZE 1024
+#define BUF_SIZE 5500 //this is pretty large
 
 typedef unsigned char byte;
 
