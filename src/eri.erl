@@ -64,7 +64,7 @@ loop(Port) ->
 	    Port ! {self(), {command, term_to_binary(Msg)}},
 	    receive
 		{Port, {data, Data}} ->
-		    erlang:display(Data),
+		    %erlang:display(Data),
 		    Caller ! {?MODULE, binary_to_term(Data)}
 	    end,
 	    loop(Port);
