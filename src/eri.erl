@@ -50,8 +50,8 @@ init(ExtPrg)->
 sum(X,Y) -> call_port({sum, X, Y}).
 
 call_port(Msg) ->
-    erlang:display("sending message: "),
-    erlang:display(Msg),
+    %erlang:display("sending message: "),
+    %erlang:display(Msg),
     ?MODULE ! {call, self(), Msg},
     receive
 	{?MODULE, Result}->
